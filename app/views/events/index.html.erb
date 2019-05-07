@@ -1,1 +1,23 @@
-<h1> Salut ma couille </h1>
+<header id="head">
+    <div class="container">
+      <h2 class="display-5">Welcome on EventBrite!</h2>
+        <!-- <i class="fas fa-heart"></i> -->
+      </div>
+  </header>
+  <!-- /Header -->
+
+      <!-- Main jumbotron for a primary marketing message or call to action -->
+    
+   <%  @events = Event.all %>
+
+      <div class="container">
+        <!-- Example row of columns -->
+        <div class="row">
+          <% @events.each do |event| %>
+          <div class="col-md-4">
+            <h2><%= event.title %></h2>
+            <p><%= event.description %></p>
+            <p><a class="btn btn-secondary" href="<%= event_path(event.id) %>" role="button">En savoir plus &raquo;</a></p>
+          </div>
+          <% end %>
+        </div>

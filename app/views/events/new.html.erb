@@ -1,0 +1,33 @@
+<div class="card border-info m-5">
+ <div class="card-header">
+  <h1>Create your own event!</h1>
+</div>
+<%= form_tag url_for(action: 'create'), method: "post" do %>
+<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+<div class="card-body text-info">
+  <div class="form-group">
+    <%= text_field_tag 'title', @event.title, class: "form-control", placeholder: "Name of your event" %>
+    <%= text_area_tag 'start_date', @event.start_date, class: "form-control", placeholder: "Start date" %>
+    <%= date_field(:event, :start_date) %>
+    <%= text_area_tag 'duration', @event.duration, class: "form-control", placeholder: "Duration" %>
+    <%= text_field_tag 'location', @event.location, class: "form-control", placeholder: "The place to be" %>
+    <%= text_area_tag 'description', @event.description, class: "form-control", placeholder: "Description" %>
+    <%= text_field_tag 'price', @event.price, class: "form-control", placeholder: "Price" %>
+    <br /> <br />
+
+    <%= submit_tag "Add my event", class: "btn btn-info" %>
+    <% end %>
+  </div>
+</div>
+</div>
+<% if @event.errors.any? %>
+<div class="alert alert-danger" role="alert">
+  <p>We were unable to create your event for the following reasons:</p>
+  <ul>
+    <% @event.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
