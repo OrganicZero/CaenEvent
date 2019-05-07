@@ -2,6 +2,9 @@
 
 Projet de Jules Dajon 
 
+Pour accéder à la version en ligne :
+https://damp-ravine-49152.herokuapp.com/
+
 Dans cette version raté de EventBrite vous pourrez :
 
 Créer un utilisateur
